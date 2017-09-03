@@ -1,12 +1,21 @@
-﻿using scheduler.Database.Enums;
+﻿
+using scheduler.Database.Entities.Base;
+using scheduler.Database.Enums;
 
 namespace scheduler.Database.Entities
 {
-    public class ScheduleSettings
+    public class ScheduleSettings : EntityBase<int>
     {
-        public virtual Weekday StartWeekday { get; set; }
-        public int StartWeekdayId { get; set; }
+        #region navigationProperties
+
         public int BusinessId { get; set; }
+
         public virtual Business Business { get; set; }
+
+        public int StartWeekdayId { get; set; }
+
+        public virtual Weekday StartWeekday { get; set; }
+
+        #endregion
     }
 }

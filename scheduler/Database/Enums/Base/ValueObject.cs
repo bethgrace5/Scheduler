@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace scheduler.Database.Entities.Base
+namespace scheduler.Database.Enums.Base
 {
     public class ValueObject
     {

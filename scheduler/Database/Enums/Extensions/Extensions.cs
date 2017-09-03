@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using scheduler.Database.Entities.Base;
+using scheduler.Database.Enums.Base;
 
 namespace scheduler.Database.Enums.Extensions
 {

@@ -1,4 +1,4 @@
-namespace scheduler.Database.Migrations
+namespace scheduler.Database.EntityFramework.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -15,6 +15,9 @@ namespace scheduler.Database.Migrations
                         WeekdayId = c.Int(nullable: false),
                         StartTime = c.DateTime(nullable: false),
                         EndTime = c.DateTime(nullable: false),
+                        Id = c.Int(nullable: false),
+                        DateCreated = c.DateTime(nullable: false),
+                        DateDeleted = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => new { t.UserId, t.WeekdayId })
                 .ForeignKey("dbo.User", t => t.UserId, cascadeDelete: false)
@@ -34,35 +37,37 @@ namespace scheduler.Database.Migrations
                         Birthdate = c.DateTime(nullable: false),
                         MaxHoursPerWeek = c.Int(nullable: false),
                         MinHoursPerWeek = c.Int(nullable: false),
-                        AddressId = c.Int(nullable: false),
                         PrimaryPhone = c.String(),
                         SecondaryPhone = c.String(),
                         BusinessLedgerId = c.Int(nullable: false),
-                        RoleId = c.Int(nullable: false),
                         Notes = c.String(),
                         Active = c.Boolean(nullable: false),
+                        RoleId = c.Int(nullable: false),
+                        AddressId = c.Int(nullable: false),
                         StatusId = c.Int(nullable: false),
+                        DateCreated = c.DateTime(nullable: false),
+                        DateDeleted = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Address", t => t.AddressId, cascadeDelete: false)
                 .ForeignKey("dbo.Role", t => t.RoleId, cascadeDelete: false)
                 .ForeignKey("dbo.Status", t => t.StatusId, cascadeDelete: false)
-                .Index(t => t.AddressId)
                 .Index(t => t.RoleId)
+                .Index(t => t.AddressId)
                 .Index(t => t.StatusId);
             
             CreateTable(
                 "dbo.Address",
                 c => new
                     {
-                        Id = c.Int(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         Zipcode = c.Int(nullable: false),
                         Number = c.Int(nullable: false),
                         City = c.String(),
                         State = c.String(),
                         Street = c.String(),
-                        Name = c.String(),
-                        Description = c.String(),
+                        DateCreated = c.DateTime(nullable: false),
+                        DateDeleted = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -101,15 +106,17 @@ namespace scheduler.Database.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        TimeZoneId = c.Int(nullable: false),
-                        BillingAddressId = c.Int(nullable: false),
-                        HeadquarterAddressId = c.Int(nullable: false),
                         Name = c.String(),
                         PrimaryPhone = c.String(),
                         SecondaryPhone = c.String(),
                         Fax = c.String(),
                         SubscriptionEndDate = c.DateTime(nullable: false),
                         SignUpDate = c.DateTime(nullable: false),
+                        TimeZoneId = c.Int(nullable: false),
+                        BillingAddressId = c.Int(nullable: false),
+                        HeadquarterAddressId = c.Int(nullable: false),
+                        DateCreated = c.DateTime(nullable: false),
+                        DateDeleted = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Address", t => t.BillingAddressId, cascadeDelete: false)
@@ -144,11 +151,13 @@ namespace scheduler.Database.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        RequestedById = c.Int(nullable: false),
-                        RespondedById = c.Int(nullable: false),
                         IsApproved = c.Boolean(nullable: false),
                         StartDateTime = c.DateTime(nullable: false),
                         EndDateTime = c.DateTime(nullable: false),
+                        RequestedById = c.Int(nullable: false),
+                        RespondedById = c.Int(nullable: false),
+                        DateCreated = c.DateTime(nullable: false),
+                        DateDeleted = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.User", t => t.RequestedById, cascadeDelete: false)
@@ -161,20 +170,22 @@ namespace scheduler.Database.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        BusinessId = c.Int(nullable: false),
-                        TimeZoneId = c.Int(nullable: false),
-                        AddressId = c.Int(nullable: false),
                         Name = c.String(),
                         PrimaryPhone = c.String(),
                         SecondaryPhone = c.String(),
                         Fax = c.String(),
+                        TimeZoneId = c.Int(nullable: false),
+                        BusinessId = c.Int(nullable: false),
+                        AddressId = c.Int(nullable: false),
+                        DateCreated = c.DateTime(nullable: false),
+                        DateDeleted = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Address", t => t.AddressId, cascadeDelete: false)
                 .ForeignKey("dbo.Business", t => t.BusinessId, cascadeDelete: false)
                 .ForeignKey("dbo.TimeZone", t => t.TimeZoneId, cascadeDelete: false)
-                .Index(t => t.BusinessId)
                 .Index(t => t.TimeZoneId)
+                .Index(t => t.BusinessId)
                 .Index(t => t.AddressId);
             
             CreateTable(
@@ -212,7 +223,6 @@ namespace scheduler.Database.Migrations
                 c => new
                     {
                         Title = c.String(nullable: false, maxLength: 128),
-                        LocationId = c.Int(nullable: false),
                         Monday = c.Boolean(nullable: false),
                         Tuesday = c.Boolean(nullable: false),
                         Wednesday = c.Boolean(nullable: false),
@@ -220,6 +230,10 @@ namespace scheduler.Database.Migrations
                         Friday = c.Boolean(nullable: false),
                         Saturday = c.Boolean(nullable: false),
                         Sunday = c.Boolean(nullable: false),
+                        LocationId = c.Int(nullable: false),
+                        Id = c.Int(nullable: false),
+                        DateCreated = c.DateTime(nullable: false),
+                        DateDeleted = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Title)
                 .ForeignKey("dbo.Location", t => t.LocationId, cascadeDelete: false)
@@ -231,8 +245,11 @@ namespace scheduler.Database.Migrations
                     {
                         LocationId = c.Int(nullable: false),
                         StartDate = c.DateTime(nullable: false),
-                        PublishedById = c.Int(nullable: false),
                         DatePublished = c.DateTime(nullable: false),
+                        PublishedById = c.Int(nullable: false),
+                        Id = c.Int(nullable: false),
+                        DateCreated = c.DateTime(nullable: false),
+                        DateDeleted = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => new { t.LocationId, t.StartDate })
                 .ForeignKey("dbo.Location", t => t.LocationId, cascadeDelete: false)
@@ -246,20 +263,21 @@ namespace scheduler.Database.Migrations
                     {
                         BusinessId = c.Int(nullable: false, identity: true),
                         StartWeekdayId = c.Int(nullable: false),
-                        Business_Id = c.Int(),
+                        Id = c.Int(nullable: false),
+                        DateCreated = c.DateTime(nullable: false),
+                        DateDeleted = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.BusinessId)
-                .ForeignKey("dbo.Business", t => t.Business_Id)
+                .ForeignKey("dbo.Business", t => t.Id, cascadeDelete: false)
                 .ForeignKey("dbo.Weekday", t => t.StartWeekdayId, cascadeDelete: false)
                 .Index(t => t.StartWeekdayId)
-                .Index(t => t.Business_Id);
+                .Index(t => t.Id);
             
             CreateTable(
                 "dbo.Shift",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        PositionId = c.Int(nullable: false),
                         Name = c.String(),
                         EffectiveDate = c.DateTime(nullable: false),
                         IneffectiveDate = c.DateTime(nullable: false),
@@ -278,7 +296,10 @@ namespace scheduler.Database.Migrations
                         SundayStart = c.DateTime(nullable: false),
                         SundayEnd = c.DateTime(nullable: false),
                         ViewIndex = c.Int(nullable: false),
+                        PositionId = c.Int(nullable: false),
                         LocationId = c.Int(nullable: false),
+                        DateCreated = c.DateTime(nullable: false),
+                        DateDeleted = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Location", t => t.LocationId, cascadeDelete: false)
@@ -290,12 +311,14 @@ namespace scheduler.Database.Migrations
                 "dbo.Position",
                 c => new
                     {
-                        Id = c.Int(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         UserId = c.Int(nullable: false),
-                        Name = c.String(),
-                        Description = c.String(),
+                        DateCreated = c.DateTime(nullable: false),
+                        DateDeleted = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.User", t => t.UserId, cascadeDelete: false)
+                .Index(t => t.UserId);
             
             CreateTable(
                 "dbo.TemporaryLocationHourChange",
@@ -305,8 +328,10 @@ namespace scheduler.Database.Migrations
                         StartDateTime = c.DateTime(nullable: false),
                         EndDateTime = c.DateTime(nullable: false),
                         ReasonId = c.String(),
-                        LocationId = c.Int(nullable: false),
                         IsOpen = c.Boolean(nullable: false),
+                        LocationId = c.Int(nullable: false),
+                        DateCreated = c.DateTime(nullable: false),
+                        DateDeleted = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Location", t => t.LocationId, cascadeDelete: false)
@@ -365,11 +390,11 @@ namespace scheduler.Database.Migrations
                 c => new
                     {
                         UserId = c.Int(nullable: false, identity: true),
-                        PositionId = c.Int(nullable: false),
                         DateAcquired = c.DateTime(nullable: false),
                         DateRemoved = c.DateTime(nullable: false),
                         IsPrimary = c.Boolean(nullable: false),
                         IsTraining = c.Boolean(nullable: false),
+                        PositionId = c.Int(nullable: false),
                         User_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.UserId)
@@ -383,9 +408,9 @@ namespace scheduler.Database.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        Date = c.DateTime(nullable: false),
                         UserId = c.Int(nullable: false),
                         ShiftId = c.Int(nullable: false),
-                        Date = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Shift", t => t.ShiftId, cascadeDelete: false)
@@ -425,9 +450,10 @@ namespace scheduler.Database.Migrations
             DropForeignKey("dbo.UserLocationHistory", "LocationId", "dbo.Location");
             DropForeignKey("dbo.TemporaryLocationHourChange", "LocationId", "dbo.Location");
             DropForeignKey("dbo.Shift", "PositionId", "dbo.Position");
+            DropForeignKey("dbo.Position", "UserId", "dbo.User");
             DropForeignKey("dbo.Shift", "LocationId", "dbo.Location");
             DropForeignKey("dbo.ScheduleSettings", "StartWeekdayId", "dbo.Weekday");
-            DropForeignKey("dbo.ScheduleSettings", "Business_Id", "dbo.Business");
+            DropForeignKey("dbo.ScheduleSettings", "Id", "dbo.Business");
             DropForeignKey("dbo.Schedule", "PublishedById", "dbo.User");
             DropForeignKey("dbo.Schedule", "LocationId", "dbo.Location");
             DropForeignKey("dbo.ReceivablesSchedule", "LocationId", "dbo.Location");
@@ -458,24 +484,25 @@ namespace scheduler.Database.Migrations
             DropIndex("dbo.UserLocationHistory", new[] { "User_Id" });
             DropIndex("dbo.UserLocationHistory", new[] { "LocationId" });
             DropIndex("dbo.TemporaryLocationHourChange", new[] { "LocationId" });
+            DropIndex("dbo.Position", new[] { "UserId" });
             DropIndex("dbo.Shift", new[] { "LocationId" });
             DropIndex("dbo.Shift", new[] { "PositionId" });
-            DropIndex("dbo.ScheduleSettings", new[] { "Business_Id" });
+            DropIndex("dbo.ScheduleSettings", new[] { "Id" });
             DropIndex("dbo.ScheduleSettings", new[] { "StartWeekdayId" });
             DropIndex("dbo.Schedule", new[] { "PublishedById" });
             DropIndex("dbo.Schedule", new[] { "LocationId" });
             DropIndex("dbo.ReceivablesSchedule", new[] { "LocationId" });
             DropIndex("dbo.Location", new[] { "AddressId" });
-            DropIndex("dbo.Location", new[] { "TimeZoneId" });
             DropIndex("dbo.Location", new[] { "BusinessId" });
+            DropIndex("dbo.Location", new[] { "TimeZoneId" });
             DropIndex("dbo.LeaveOfAbsence", new[] { "RespondedById" });
             DropIndex("dbo.LeaveOfAbsence", new[] { "RequestedById" });
             DropIndex("dbo.Business", new[] { "HeadquarterAddressId" });
             DropIndex("dbo.Business", new[] { "BillingAddressId" });
             DropIndex("dbo.Business", new[] { "TimeZoneId" });
             DropIndex("dbo.User", new[] { "StatusId" });
-            DropIndex("dbo.User", new[] { "RoleId" });
             DropIndex("dbo.User", new[] { "AddressId" });
+            DropIndex("dbo.User", new[] { "RoleId" });
             DropIndex("dbo.Availability", new[] { "WeekdayId" });
             DropIndex("dbo.Availability", new[] { "UserId" });
             DropTable("dbo.UserStatus");

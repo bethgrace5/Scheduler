@@ -1,12 +1,10 @@
 ﻿using System;
+using scheduler.Database.Entities.Base;
 
 namespace scheduler.Database.Entities
 {
-    public class Shift
+    public class Shift : EntityBase<int>
     {
-        public int Id { get; set; }
-        public int PositionId { get; set; }
-        public virtual Position Position { get; set; }
         public string Name { get; set; }
         public DateTime EffectiveDate { get; set; }
         public DateTime IneffectiveDate { get; set; }
@@ -25,7 +23,17 @@ namespace scheduler.Database.Entities
         public DateTime SundayStart { get; set; }
         public DateTime SundayEnd { get; set; }
         public int ViewIndex { get; set; }
+
+        #region navigationProperties
+
+        public int PositionId { get; set; }
+
+        public virtual Position Position { get; set; }
+
         public int LocationId { get; set; }
+
         public virtual Location Location { get; set; }
+
+        #endregion
     }
 }

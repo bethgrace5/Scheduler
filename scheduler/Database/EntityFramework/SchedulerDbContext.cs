@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using scheduler.Database.Entities;
+using scheduler.Database.Entities.Relationships;
 using scheduler.Database.Enums;
 
 namespace scheduler

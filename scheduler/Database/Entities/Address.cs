@@ -2,10 +2,8 @@
 
 namespace scheduler.Database.Entities
 {
-    public class Address
+    public class Address : EntityBase<int>
     {
-        public int Id { get; set; }
-
         public int Zipcode { get; set; }
 
         public int Number { get; set; }
