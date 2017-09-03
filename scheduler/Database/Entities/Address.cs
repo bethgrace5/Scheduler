@@ -2,7 +2,7 @@
 
 namespace scheduler.Database.Entities
 {
-    public class Address : EntityBase<int>
+    public class Address : Entity
     {
         public int Zipcode { get; set; }
 

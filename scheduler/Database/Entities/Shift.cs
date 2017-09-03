@@ -3,7 +3,7 @@ using scheduler.Database.Entities.Base;
 
 namespace scheduler.Database.Entities
 {
-    public class Shift : EntityBase<int>
+    public class Shift : Entity
     {
         public string Name { get; set; }
         public DateTime EffectiveDate { get; set; }

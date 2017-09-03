@@ -2,7 +2,7 @@
 
 namespace scheduler.Database.Entities
 {
-    public class Position : EntityBase<int>
+    public class Position : Entity
     {
         #region navigationProperties
 

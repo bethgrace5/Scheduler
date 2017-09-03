@@ -2,7 +2,7 @@
 
 namespace scheduler.Database.Entities
 {
-    public class ReceivablesSchedule : EntityBase<int>
+    public class ReceivablesSchedule : Entity
     {
         public string Title { get; set; }
         public bool Monday { get; set; }

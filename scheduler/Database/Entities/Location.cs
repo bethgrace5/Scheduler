@@ -1,9 +1,10 @@
 ﻿using scheduler.Database.Entities.Base;
-using scheduler.Database.Enums;
+using scheduler.Database.Entities.EnumEntities;
+using scheduler.Database.ValueObjects;
 
 namespace scheduler.Database.Entities
 {
-    public class Location : EntityBase<int>
+    public class Location : Entity
     {
         public string Name { get; set; }
 

@@ -3,7 +3,7 @@ using scheduler.Database.Entities.Base;
 
 namespace scheduler.Database.Entities
 {
-    public class LeaveOfAbsence : EntityBase<int>
+    public class LeaveOfAbsence : Entity
     {
         public bool IsApproved { get; set; }
 

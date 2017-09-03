@@ -1,7 +1,9 @@
 ﻿using System.Data;
 using FluentAssertions;
-using scheduler.Database.Enums;
-using scheduler.Database.Enums.Extensions;
+using scheduler.Database.Entities.EnumEntities;
+using scheduler.Database.Seeds;
+using scheduler.Database.ValueObjects;
+using scheduler.Database.ValueObjects.Extensions;
 using Xunit;
 
 namespace scheduler.Database.Tests

@@ -1,4 +1,5 @@
-﻿using scheduler.Database.Enums;
+﻿using scheduler.Database.Entities.EnumEntities;
+using scheduler.Database.ValueObjects;
 
 namespace scheduler.Database.Entities.Relationships
 {

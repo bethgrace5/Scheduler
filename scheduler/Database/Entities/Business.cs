@@ -1,10 +1,10 @@
 ﻿using System;
 using scheduler.Database.Entities.Base;
-using TimeZone = scheduler.Database.Enums.TimeZone;
+using TimeZone = scheduler.Database.Entities.EnumEntities.TimeZone;
 
 namespace scheduler.Database.Entities
 {
-    public class Business : EntityBase<int>
+    public class Business : Entity
     {
         public string Name { get; set; }
 

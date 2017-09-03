@@ -3,10 +3,9 @@ using System.ComponentModel;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using scheduler.Database.Entities.Base;
-using scheduler.Database.Enums.Base;
+using scheduler.Database.Entities.EnumEntities.Base;
 
-namespace scheduler.Database.Enums.Extensions
+namespace scheduler.Database.ValueObjects.Extensions
 {
     public static class Extensions
     {
@@ -20,12 +19,14 @@ namespace scheduler.Database.Enums.Extensions
         }
 
         public static void SeedEnumValues<T, TEnum>(this IDbSet<T> dbSet)
-            where T : ValueObject, new()
+            where T : EnumEntity, new()
         {
             var values = Enum.GetValues(typeof(TEnum));
 
             foreach (var val in values)
             {
+
+
                 var @object = new T
                 {
                     Id = (int) Enum.Parse(typeof(TEnum), val.ToString()),

@@ -1,11 +1,10 @@
 ﻿using System;
+using scheduler.Database.Entities.Base;
 
 namespace scheduler.Database.Entities.Relationships
 {
-    public class UserPosition
+    public class UserPosition : Entity
     {
-        public DateTime DateAcquired { get; set; }
-        public DateTime DateRemoved { get; set; }
         public bool IsPrimary { get; set; }
         public bool IsTraining { get; set; }
 

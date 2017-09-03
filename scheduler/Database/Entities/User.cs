@@ -1,10 +1,11 @@
 ﻿using System;
 using scheduler.Database.Entities.Base;
-using scheduler.Database.Enums;
+using scheduler.Database.Entities.EnumEntities;
+using scheduler.Database.ValueObjects;
 
 namespace scheduler.Database.Entities
 {
-    public class User : EntityBase<int>
+    public class User : Entity
     {
         public string Firstname { get; set; }
 
