@@ -66,48 +66,48 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\Entities\Address.cs" />
-    <Compile Include="Database\Entities\Availability.cs" />
-    <Compile Include="Database\Entities\Base\Entity.cs" />
-    <Compile Include="Database\Entities\Business.cs" />
-    <Compile Include="Database\EntityFramework\Migrations\201709032234112_Initial.cs" />
-    <Compile Include="Database\EntityFramework\Migrations\201709032234112_Initial.Designer.cs">
+    <Compile Include="Domain\Entities\Address.cs" />
+    <Compile Include="Domain\Entities\Availability.cs" />
+    <Compile Include="Domain\Entities\Base\Entity.cs" />
+    <Compile Include="Domain\Entities\Business.cs" />
+    <Compile Include="Infrastructure\EntityFramework\Migrations\201709032234112_Initial.cs" />
+    <Compile Include="Infrastructure\EntityFramework\Migrations\201709032234112_Initial.Designer.cs">
       <DependentUpon>201709032234112_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Database\EntityFramework\Migrations\201709032242120_Initial2.cs" />
-    <Compile Include="Database\EntityFramework\Migrations\201709032242120_Initial2.Designer.cs">
+    <Compile Include="Infrastructure\EntityFramework\Migrations\201709032242120_Initial2.cs" />
+    <Compile Include="Infrastructure\EntityFramework\Migrations\201709032242120_Initial2.Designer.cs">
       <DependentUpon>201709032242120_Initial2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Database\EntityFramework\Migrations\Configuration.cs" />
-    <Compile Include="Database\Seeds\EnumSeeds.cs" />
-    <Compile Include="Database\ValueObjects\Extensions\Extensions.cs" />
-    <Compile Include="Database\Entities\EnumEntities\HourChangeReason.cs" />
-    <Compile Include="Database\Entities\LeaveOfAbsence.cs" />
-    <Compile Include="Database\Entities\Location.cs" />
-    <Compile Include="Database\Entities\EnumEntities\Notification.cs" />
-    <Compile Include="Database\Entities\EnumEntities\NotificationMedia.cs" />
-    <Compile Include="Database\Entities\EnumEntities\Permission.cs" />
-    <Compile Include="Database\Entities\Position.cs" />
-    <Compile Include="Database\Entities\ReceivablesSchedule.cs" />
-    <Compile Include="Database\Entities\EnumEntities\Role.cs" />
-    <Compile Include="Database\Entities\Schedule.cs" />
-    <Compile Include="Database\Entities\ScheduleSettings.cs" />
-    <Compile Include="Database\Entities\Shift.cs" />
-    <Compile Include="Database\Entities\EnumEntities\Status.cs" />
-    <Compile Include="Database\Entities\TemporaryLocationHourChange.cs" />
-    <Compile Include="Database\Entities\EnumEntities\TimeZone.cs" />
-    <Compile Include="Database\Entities\User.cs" />
-    <Compile Include="Database\Entities\Relationships\UserLocationHistory.cs" />
-    <Compile Include="Database\Entities\Relationships\UserNotificationSettings.cs" />
-    <Compile Include="Database\Entities\Relationships\UserPermission.cs" />
-    <Compile Include="Database\Entities\Relationships\UserPosition.cs" />
-    <Compile Include="Database\Entities\Relationships\UserScheduledForShift.cs" />
-    <Compile Include="Database\Entities\Relationships\UserStatus.cs" />
-    <Compile Include="Database\Entities\EnumEntities\Base\EnumEntity.cs" />
-    <Compile Include="Database\Entities\EnumEntities\Weekday.cs" />
+    <Compile Include="Infrastructure\EntityFramework\Migrations\Configuration.cs" />
+    <Compile Include="Infrastructure\Database\Seeds\EnumSeeds.cs" />
+    <Compile Include="Domain\ValueObjects\Extensions\Extensions.cs" />
+    <Compile Include="Domain\Entities\EnumEntities\HourChangeReason.cs" />
+    <Compile Include="Domain\Entities\LeaveOfAbsence.cs" />
+    <Compile Include="Domain\Entities\Location.cs" />
+    <Compile Include="Domain\Entities\EnumEntities\Notification.cs" />
+    <Compile Include="Domain\Entities\EnumEntities\NotificationMedia.cs" />
+    <Compile Include="Domain\Entities\EnumEntities\Permission.cs" />
+    <Compile Include="Domain\Entities\Position.cs" />
+    <Compile Include="Domain\Entities\ReceivablesSchedule.cs" />
+    <Compile Include="Domain\Entities\EnumEntities\Role.cs" />
+    <Compile Include="Domain\Entities\Schedule.cs" />
+    <Compile Include="Domain\Entities\ScheduleSettings.cs" />
+    <Compile Include="Domain\Entities\Shift.cs" />
+    <Compile Include="Domain\Entities\EnumEntities\Status.cs" />
+    <Compile Include="Domain\Entities\TemporaryLocationHourChange.cs" />
+    <Compile Include="Domain\Entities\EnumEntities\TimeZone.cs" />
+    <Compile Include="Domain\Entities\User.cs" />
+    <Compile Include="Domain\Entities\Relationships\UserLocationHistory.cs" />
+    <Compile Include="Domain\Entities\Relationships\UserNotificationSettings.cs" />
+    <Compile Include="Domain\Entities\Relationships\UserPermission.cs" />
+    <Compile Include="Domain\Entities\Relationships\UserPosition.cs" />
+    <Compile Include="Domain\Entities\Relationships\UserScheduledForShift.cs" />
+    <Compile Include="Domain\Entities\Relationships\UserStatus.cs" />
+    <Compile Include="Domain\Entities\EnumEntities\Base\EnumEntity.cs" />
+    <Compile Include="Domain\Entities\EnumEntities\Weekday.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Database\EntityFramework\SchedulerDbContext.cs" />
-    <Compile Include="Database\EntityFramework\Tests\EntityFramework.cs" />
+    <Compile Include="Infrastructure\EntityFramework\SchedulerDbContext.cs" />
+    <Compile Include="Infrastructure\Tests\EntityFramework.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -116,10 +116,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Database\EntityFramework\Migrations\201709032234112_Initial.resx">
+    <EmbeddedResource Include="Infrastructure\EntityFramework\Migrations\201709032234112_Initial.resx">
       <DependentUpon>201709032234112_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Database\EntityFramework\Migrations\201709032242120_Initial2.resx">
+    <EmbeddedResource Include="Infrastructure\EntityFramework\Migrations\201709032242120_Initial2.resx">
       <DependentUpon>201709032242120_Initial2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
