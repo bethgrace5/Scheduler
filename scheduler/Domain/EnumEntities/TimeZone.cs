@@ -1,4 +1,4 @@
-namespace scheduler.Domain.Entities.EnumEntities
+namespace scheduler.Domain.EnumEntities
 {
     public class TimeZone : Base.EnumEntity
     {

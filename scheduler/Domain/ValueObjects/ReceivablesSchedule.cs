@@ -1,8 +1,9 @@
-﻿using scheduler.Domain.Entities.Base;
+﻿using scheduler.Domain.Entities;
+using scheduler.Domain.ValueObjects.Base;
 
-namespace scheduler.Domain.Entities
+namespace scheduler.Domain.ValueObjects
 {
-    public class ReceivablesSchedule : Entity
+    public class ReceivablesSchedule : ValueObject
     {
         public string Title { get; set; }
         public bool Monday { get; set; }

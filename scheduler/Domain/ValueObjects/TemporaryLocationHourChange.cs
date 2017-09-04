@@ -1,10 +1,11 @@
 ﻿using System;
-using scheduler.Domain.Entities.Base;
-using scheduler.Domain.Entities.EnumEntities;
+using scheduler.Domain.Entities;
+using scheduler.Domain.EnumEntities;
+using scheduler.Domain.ValueObjects.Base;
 
-namespace scheduler.Domain.Entities
+namespace scheduler.Domain.ValueObjects
 {
-    public class TemporaryLocationHourChange : Entity
+    public class TemporaryLocationHourChange : ValueObject
     {
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }

@@ -1,5 +1,5 @@
 ﻿using scheduler.Domain.Entities.Base;
-using scheduler.Domain.Entities.EnumEntities;
+using scheduler.Domain.EnumEntities;
 
 namespace scheduler.Domain.Entities
 {

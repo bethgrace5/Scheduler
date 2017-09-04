@@ -1,6 +1,7 @@
 ﻿using System;
 using scheduler.Domain.Entities.Base;
-using scheduler.Domain.Entities.EnumEntities;
+using scheduler.Domain.EnumEntities;
+using scheduler.Domain.ValueObjects;
 
 namespace scheduler.Domain.Entities
 {

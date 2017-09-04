@@ -1,10 +1,11 @@
 ﻿using System;
-using scheduler.Domain.Entities.Base;
-using scheduler.Domain.Entities.EnumEntities;
+using scheduler.Domain.Entities;
+using scheduler.Domain.EnumEntities;
+using scheduler.Domain.ValueObjects.Base;
 
-namespace scheduler.Domain.Entities
+namespace scheduler.Domain.ValueObjects
 {
-    public class Availability : Entity
+    public class Availability : ValueObject
     {
         public DateTime StartTime { get; set; }
 
@@ -21,6 +22,5 @@ namespace scheduler.Domain.Entities
         public virtual Weekday Weekday { get; set; }
 
         #endregion
-
     }
 }

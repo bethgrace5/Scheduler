@@ -1,9 +1,9 @@
 using System.Data.Entity.Migrations;
-using scheduler.Domain.Entities.EnumEntities;
-using scheduler.Domain.ValueObjects.Extensions;
+using scheduler.Domain.EnumEntities;
+using scheduler.Domain.EnumEntities.Extensions;
 using scheduler.Infrastructure.Database.Seeds;
 
-namespace scheduler.Infrastructure.EntityFramework.Migrations
+namespace scheduler.Infrastructure.Database.EntityFramework.Migrations
 {
     internal sealed class Configuration : DbMigrationsConfiguration<SchedulerDbContext>
     {

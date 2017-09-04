@@ -3,9 +3,9 @@ using System.ComponentModel;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using scheduler.Domain.Entities.EnumEntities.Base;
+using scheduler.Domain.EnumEntities.Base;
 
-namespace scheduler.Domain.ValueObjects.Extensions
+namespace scheduler.Domain.EnumEntities.Extensions
 {
     public static class Extensions
     {

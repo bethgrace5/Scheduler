@@ -1,8 +1,8 @@
-﻿using scheduler.Domain.Entities.Base;
+﻿using scheduler.Domain.ValueObjects.Base;
 
-namespace scheduler.Domain.Entities
+namespace scheduler.Domain.ValueObjects
 {
-    public class Address : Entity
+    public class Address : ValueObject
     {
         public int Zipcode { get; set; }
 

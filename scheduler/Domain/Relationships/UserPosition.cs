@@ -1,6 +1,8 @@
-﻿using scheduler.Domain.Entities.Base;
+﻿using scheduler.Domain.Entities;
+using scheduler.Domain.Entities.Base;
+using scheduler.Domain.ValueObjects;
 
-namespace scheduler.Domain.Entities.Relationships
+namespace scheduler.Domain.Relationships
 {
     public class UserPosition : Entity
     {

@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using System.Net.Mime;
 using FluentAssertions;
-using scheduler.Infrastructure.EntityFramework;
+using scheduler.Infrastructure.Database.EntityFramework;
 using Xunit;
 
 namespace Scheduler.Tests.Infrastructure

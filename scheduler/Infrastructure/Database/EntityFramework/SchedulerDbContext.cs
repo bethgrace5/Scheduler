@@ -1,11 +1,12 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using scheduler.Domain.Entities;
-using scheduler.Domain.Entities.EnumEntities;
-using scheduler.Domain.Entities.Relationships;
-using TimeZone = scheduler.Domain.Entities.EnumEntities.TimeZone;
+using scheduler.Domain.EnumEntities;
+using scheduler.Domain.Relationships;
+using scheduler.Domain.ValueObjects;
+using TimeZone = scheduler.Domain.EnumEntities.TimeZone;
 
-namespace scheduler.Infrastructure.EntityFramework
+namespace scheduler.Infrastructure.Database.EntityFramework
 {
     public class SchedulerDbContext : DbContext, ISchedulerDbContext
     {
@@ -69,6 +70,16 @@ namespace scheduler.Infrastructure.EntityFramework
 
             modelBuilder.Entity<UserStatus>()
                 .HasKey(t => new {t.UserId, t.StatusId});
+
+
+            modelBuilder.Entity<LeaveOfAbsence>()
+                .HasKey(t => new { t.RequestedById, t.StartDateTime });
+
+            modelBuilder.Entity<Position>()
+                .HasKey(t => new { t.LocationId, t.Name });
+
+            modelBuilder.Entity<TemporaryLocationHourChange>()
+                .HasKey(t => new { t.LocationId, t.StartDateTime});
 
             // remove pluralization of table names
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

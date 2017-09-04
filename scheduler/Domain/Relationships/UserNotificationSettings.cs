@@ -1,6 +1,7 @@
-﻿using scheduler.Domain.Entities.EnumEntities;
+﻿using scheduler.Domain.Entities;
+using scheduler.Domain.EnumEntities;
 
-namespace scheduler.Domain.Entities.Relationships
+namespace scheduler.Domain.Relationships
 {
     public class UserNotificationSettings
     {

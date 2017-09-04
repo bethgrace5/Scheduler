@@ -1,6 +1,7 @@
 ﻿using System;
 using scheduler.Domain.Entities.Base;
-using TimeZone = scheduler.Domain.Entities.EnumEntities.TimeZone;
+using scheduler.Domain.ValueObjects;
+using TimeZone = scheduler.Domain.EnumEntities.TimeZone;
 
 namespace scheduler.Domain.Entities
 {

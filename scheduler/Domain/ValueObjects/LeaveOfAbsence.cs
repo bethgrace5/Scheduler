@@ -1,9 +1,10 @@
 ﻿using System;
-using scheduler.Domain.Entities.Base;
+using scheduler.Domain.Entities;
+using scheduler.Domain.ValueObjects.Base;
 
-namespace scheduler.Domain.Entities
+namespace scheduler.Domain.ValueObjects
 {
-    public class LeaveOfAbsence : Entity
+    public class LeaveOfAbsence : ValueObject
     {
         public bool IsApproved { get; set; }
 
@@ -22,6 +23,5 @@ namespace scheduler.Domain.Entities
         public virtual User RespondedBy { get; set; }
 
         #endregion
-
     }
 }
