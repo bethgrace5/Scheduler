@@ -15,20 +15,19 @@ namespace scheduler.Infrastructure.EntityFramework.Migrations
 
         protected override void Seed(SchedulerDbContext context)
         {
+            // Persist any updates to enums
+            context.HourChangeReason.SeedEnumValues<HourChangeReason, HourChangeReasonEnum>();
+            context.Notification.SeedEnumValues<Notification, NotificationEnum>();
+            context.NotificationMedia.SeedEnumValues<NotificationMedia, NotificationMediaEnum>();
+            context.Permission.SeedEnumValues<Permission, PermissionEnum>();
             context.Role.SeedEnumValues<Role, RoleEnum>();
+            context.Status.SeedEnumValues<Status, StatusEnum>();
+            context.TimeZone.SeedEnumValues<TimeZone, TimeZoneEnum>();
+            context.Weekday.SeedEnumValues<Weekday, WeekdayEnum>();
+            context.Country.SeedEnumValues<Country, CountryEnum>();
+            context.Language.SeedEnumValues<Language, LanguageEnum>();
+            context.UsStatesAndTerritorieses.SeedEnumValues<UsStatesAndTerritories, UsStatesAndTerritoriesEnum>();
 
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
         }
     }
 }

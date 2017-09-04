@@ -25,8 +25,6 @@ namespace scheduler.Domain.ValueObjects.Extensions
 
             foreach (var val in values)
             {
-
-
                 var @object = new T
                 {
                     Id = (int) Enum.Parse(typeof(TEnum), val.ToString()),
@@ -34,7 +32,7 @@ namespace scheduler.Domain.ValueObjects.Extensions
                     Description = val.GetEnumDescription()
                 };
 
-                //dbSet.AddOrUpdate(@object);
+                dbSet.AddOrUpdate(@object);
             }
         }
     }

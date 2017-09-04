@@ -1,5 +1,8 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
+using FluentAssertions;
 using NSubstitute;
 using scheduler.Domain.Entities.EnumEntities.Base;
 using scheduler.Domain.ValueObjects.Extensions;
@@ -20,7 +23,15 @@ namespace Scheduler.Tests.Infrastructure
         {
             var mockDbSet = Substitute.For<IDbSet<EnumEntity>>();
 
-            mockDbSet.SeedEnumValues<EnumEntity, TestEnum>();
+            try
+            {
+                mockDbSet.SeedEnumValues<EnumEntity, TestEnum>();
+            }
+            catch (InvalidOperationException e)
+            {
+                // cannot mock AddOrUpdate - Expect it to get that far with specific error
+                e.Message.ShouldBeEquivalentTo("Unable to call public, instance method AddOrUpdate on derived IDbSet<T> type 'Castle.Proxies.IDbSet`1Proxy'. Method not found.");
+            }
         }
     }
 }

@@ -9,24 +9,37 @@ namespace Scheduler.Tests.Infrastructure
     public class EntityFrameworkIntegrationTests
     {
         [Fact]
-        public void Should_open_and_close_connection_to_database()
+        public void Should_have_database_connection_string()
         {
             using (var context = new SchedulerDbContext())
             {
+                context.Database.Should().NotBeNull();
 
-                context.Database.Exists().Should().BeTrue();
+                context.Database.Connection.Should().NotBeNull();
 
-                var conn = context.Database.Connection;
+                context.Database.Connection.DataSource.Should().NotBeNullOrEmpty();
+            }
+        }
 
-                conn.State.ToString().ShouldBeEquivalentTo(ConnectionState.Closed.ToString());
+        [Fact]
+        public void Should_open_and_close_connection_to_existing_databasee()
+        {
+            using (var context = new SchedulerDbContext())
+            {
+                if (context.Database.Exists())
+                {
+                    var conn = context.Database.Connection;
 
-                conn.Open();
+                    conn.State.ToString().ShouldBeEquivalentTo(ConnectionState.Closed.ToString());
 
-                conn.State.ToString().ShouldBeEquivalentTo(ConnectionState.Open.ToString());
+                    conn.Open();
 
-                conn.Close();
+                    conn.State.ToString().ShouldBeEquivalentTo(ConnectionState.Open.ToString());
 
-                conn.State.ToString().ShouldBeEquivalentTo(ConnectionState.Closed.ToString());
+                    conn.Close();
+
+                    conn.State.ToString().ShouldBeEquivalentTo(ConnectionState.Closed.ToString());
+                }
             }
         }
     }

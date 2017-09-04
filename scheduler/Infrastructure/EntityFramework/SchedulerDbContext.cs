@@ -32,14 +32,14 @@ namespace scheduler.Infrastructure.EntityFramework
         public DbSet<UserLocationHistory> UserLocationHistory { get; set; }
         public DbSet<UserPermission> UserPermission { get; set; }
         public DbSet<UserScheduledForShift> UserScheduledForShift { get; set; }
-
         public DbSet<TemporaryLocationHourChange> TemporaryLocationHourChange { get; set; }
-
         public DbSet<Status> Status { get; set; }
         public DbSet<UserStatus> UserStatus { get; set; }
-
         public DbSet<UserNotificationSettings> UserNotificationSettings { get; set; }
         public DbSet<UserPosition> UserPosition { get; set; }
+        public DbSet<Country> Country { get; set; }
+        public DbSet<Language> Language { get; set; }
+        public DbSet<UsStatesAndTerritories> UsStatesAndTerritorieses { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
