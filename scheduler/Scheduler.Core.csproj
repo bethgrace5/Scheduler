@@ -55,12 +55,12 @@
     <Compile Include="Domain\Entities\EnumEntities\UsStatesAndTerritories.cs" />
     <Compile Include="Domain\Entities\EnumEntities\Language.cs" />
     <Compile Include="Domain\Entities\EnumEntities\Country.cs" />
-    <Compile Include="Infrastructure\EntityFramework\ISchedulerDbContext.cs" />
-    <Compile Include="Infrastructure\EntityFramework\Migrations\201709040216593_Initial.cs" />
-    <Compile Include="Infrastructure\EntityFramework\Migrations\201709040216593_Initial.Designer.cs">
+    <Compile Include="Infrastructure\Database\EntityFramework\ISchedulerDbContext.cs" />
+    <Compile Include="Infrastructure\Database\EntityFramework\Migrations\201709040216593_Initial.cs" />
+    <Compile Include="Infrastructure\Database\EntityFramework\Migrations\201709040216593_Initial.Designer.cs">
       <DependentUpon>201709040216593_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\EntityFramework\Migrations\Configuration.cs" />
+    <Compile Include="Infrastructure\Database\EntityFramework\Migrations\Configuration.cs" />
     <Compile Include="Infrastructure\Database\Seeds\EnumSeeds.cs" />
     <Compile Include="Domain\Entities\EnumEntities\Extensions\Extensions.cs" />
     <Compile Include="Domain\Entities\EnumEntities\HourChangeReason.cs" />
@@ -88,7 +88,7 @@
     <Compile Include="Domain\Entities\EnumEntities\Base\EnumEntity.cs" />
     <Compile Include="Domain\Entities\EnumEntities\Weekday.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Infrastructure\EntityFramework\SchedulerDbContext.cs" />
+    <Compile Include="Infrastructure\Database\EntityFramework\SchedulerDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -97,7 +97,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Infrastructure\EntityFramework\Migrations\201709040216593_Initial.resx">
+    <EmbeddedResource Include="Infrastructure\Database\EntityFramework\Migrations\201709040216593_Initial.resx">
       <DependentUpon>201709040216593_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

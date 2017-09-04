@@ -10,12 +10,12 @@ namespace scheduler.Infrastructure.EntityFramework.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            MigrationsDirectory = @"Infrastructure\EntityFramework\Migrations";
+            MigrationsDirectory = @"Infrastructure\Database\EntityFramework\Migrations";
         }
 
         protected override void Seed(SchedulerDbContext context)
         {
-            // Persist any updates to enums
+            // EnumSeeds add and update
             context.HourChangeReason.SeedEnumValues<HourChangeReason, HourChangeReasonEnum>();
             context.Notification.SeedEnumValues<Notification, NotificationEnum>();
             context.NotificationMedia.SeedEnumValues<NotificationMedia, NotificationMediaEnum>();
