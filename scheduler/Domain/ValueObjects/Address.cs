@@ -7,9 +7,9 @@ namespace scheduler.Domain.ValueObjects
         public Address(int number, string street, string city, string state, int zipcode)
         {
             Number = number;
-            Street = street;
-            City = city;
-            State = state;
+            Street = street.Trim();
+            City = city.Trim();
+            State = state.Trim();
             Zipcode = zipcode;
         }
 
@@ -34,7 +34,13 @@ namespace scheduler.Domain.ValueObjects
 
         protected override int GetHashCodeCore()
         {
-            throw new System.NotImplementedException();
+            int hashCode = Number;
+            hashCode = (hashCode * 397) ^ Street.GetHashCode();
+            hashCode = (hashCode * 397) ^ City.GetHashCode();
+            hashCode = (hashCode * 397) ^ State.GetHashCode();
+            hashCode = (hashCode * 397) ^ Zipcode;
+
+            return hashCode;
         }
     }
 }

@@ -68,6 +68,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\ValueObjects\AddressSpecs.cs" />
+    <Compile Include="Domain\ValueObjects\AvailabilitySpecs.cs" />
     <Compile Include="Domain\ValueObjects\PositionSpecs.cs" />
     <Compile Include="Infrastructure\EntityFrameworkIntegrationTests.cs" />
     <Compile Include="Infrastructure\EntityFrameworkUnitTests.cs" />

@@ -34,12 +34,21 @@ namespace scheduler.Domain.ValueObjects
         protected override bool EqualsCore(TemporaryLocationHourChange other)
         {
             return LocationId == other.LocationId
-                   && StartDateTime == other.StartDateTime;
+                   && StartDateTime == other.StartDateTime
+                   && EndDateTime == other.EndDateTime
+                   && IsOpen == other.IsOpen
+                   && HourChangeReasonId == other.HourChangeReasonId;
         }
 
         protected override int GetHashCodeCore()
         {
-            throw new NotImplementedException();
+            var hashCode = StartDateTime.GetHashCode();
+            hashCode = (hashCode * 397) ^ EndDateTime.GetHashCode();
+            hashCode = (hashCode * 397) ^ IsOpen.GetHashCode();
+            hashCode = (hashCode * 397) ^ HourChangeReasonId;
+            hashCode = (hashCode * 397) ^ LocationId.GetHashCode();
+
+            return hashCode;
         }
     }
 }

@@ -9,8 +9,8 @@ namespace scheduler.Domain.ValueObjects
         public Position(long locationId, string name, string area = "")
         {
             LocationId = locationId;
-            Name = name;
-            Area = area;
+            Name = name.Trim();
+            Area = area.Trim();
         }
 
         public string Name { get; }
@@ -24,12 +24,18 @@ namespace scheduler.Domain.ValueObjects
         protected override bool EqualsCore(Position other)
         {
             return LocationId == other.LocationId
-                   && Name == other.Name;
+                   && Name == other.Name
+                   && Area == other.Area;
         }
 
         protected override int GetHashCodeCore()
         {
-            throw new System.NotImplementedException();
+            int hashCode = (int) LocationId;
+
+            hashCode = (hashCode * 397) ^ Name.GetHashCode();
+            hashCode = (hashCode * 397) ^ Area.GetHashCode();
+
+            return hashCode;
         }
     }
 }

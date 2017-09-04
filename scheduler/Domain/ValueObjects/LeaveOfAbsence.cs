@@ -6,7 +6,8 @@ namespace scheduler.Domain.ValueObjects
 {
     public class LeaveOfAbsence : ValueObject<LeaveOfAbsence>
     {
-        public LeaveOfAbsence(int requestedById, int respondedById, DateTime startDateTime, DateTime endDateTime, bool isApproved = false)
+        public LeaveOfAbsence(int requestedById, int respondedById, DateTime startDateTime, DateTime endDateTime,
+            bool isApproved = false)
         {
             RequestedById = requestedById;
             RespondedById = respondedById;
@@ -33,12 +34,22 @@ namespace scheduler.Domain.ValueObjects
         protected override bool EqualsCore(LeaveOfAbsence other)
         {
             return RequestedById == other.RequestedById
-                   && StartDateTime == other.StartDateTime;
+                   && RespondedById == other.RespondedById
+                   && IsApproved == other.IsApproved
+                   && StartDateTime == other.StartDateTime
+                   && EndDateTime == other.EndDateTime;
         }
 
         protected override int GetHashCodeCore()
         {
-            throw new NotImplementedException();
+            var hashCode = StartDateTime.GetHashCode();
+            hashCode = (hashCode * 397) ^ EndDateTime.GetHashCode();
+            hashCode = (hashCode * 397) ^ IsApproved.GetHashCode();
+            hashCode = (hashCode * 397) ^ RequestedById;
+            hashCode = (hashCode * 397) ^ RespondedById;
+            hashCode = (hashCode * 397) ^ IsApproved.GetHashCode();
+
+            return hashCode;
         }
     }
 }

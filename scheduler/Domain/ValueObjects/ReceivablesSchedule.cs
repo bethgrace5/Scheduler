@@ -42,12 +42,29 @@ namespace scheduler.Domain.ValueObjects
         protected override bool EqualsCore(ReceivablesSchedule other)
         {
             return LocationId == other.LocationId
-                   && Title == other.Title;
+                   && Title == other.Title
+                   && Monday == other.Monday
+                   && Tuesday == other.Tuesday
+                   && Wednesday == other.Wednesday
+                   && Thursday == other.Thursday
+                   && Friday == other.Friday
+                   && Saturday == other.Saturday
+                   && Sunday == other.Sunday;
         }
 
         protected override int GetHashCodeCore()
         {
-            throw new System.NotImplementedException();
+            var hashCode = (LocationId.GetHashCode());
+            hashCode = (hashCode * 397) ^ Title.GetHashCode();
+            hashCode = (hashCode * 397) ^ Monday.GetHashCode();
+            hashCode = (hashCode * 397) ^ Tuesday.GetHashCode();
+            hashCode = (hashCode * 397) ^ Wednesday.GetHashCode();
+            hashCode = (hashCode * 397) ^ Thursday.GetHashCode();
+            hashCode = (hashCode * 397) ^ Friday.GetHashCode();
+            hashCode = (hashCode * 397) ^ Saturday.GetHashCode();
+            hashCode = (hashCode * 397) ^ Sunday.GetHashCode();
+
+            return hashCode;
         }
     }
 }
