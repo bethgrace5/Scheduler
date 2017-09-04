@@ -34,7 +34,7 @@ namespace scheduler.Domain.ValueObjects.Extensions
                     Description = val.GetEnumDescription()
                 };
 
-                dbSet.AddOrUpdate(@object);
+                //dbSet.AddOrUpdate(@object);
             }
         }
     }

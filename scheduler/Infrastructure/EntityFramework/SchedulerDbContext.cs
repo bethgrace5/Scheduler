@@ -3,10 +3,11 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using scheduler.Domain.Entities;
 using scheduler.Domain.Entities.EnumEntities;
 using scheduler.Domain.Entities.Relationships;
+using TimeZone = scheduler.Domain.Entities.EnumEntities.TimeZone;
 
 namespace scheduler.Infrastructure.EntityFramework
 {
-    public class SchedulerDbContext : DbContext
+    public class SchedulerDbContext : DbContext, ISchedulerDbContext
     {
         public SchedulerDbContext() : base("DevelopmentSchedulerDbContext")
         {

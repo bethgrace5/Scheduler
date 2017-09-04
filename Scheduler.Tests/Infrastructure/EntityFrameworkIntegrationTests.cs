@@ -1,19 +1,19 @@
 ﻿using System.Data;
+using System.Net.Mime;
 using FluentAssertions;
-using scheduler.Domain.Entities.EnumEntities;
-using scheduler.Domain.ValueObjects.Extensions;
-using scheduler.Infrastructure.Database.Seeds;
+using scheduler.Infrastructure.EntityFramework;
 using Xunit;
 
-namespace scheduler.Infrastructure.EntityFramework.Tests
+namespace Scheduler.Tests.Infrastructure
 {
-    public class EntityFramework
+    public class EntityFrameworkIntegrationTests
     {
         [Fact]
         public void Should_open_and_close_connection_to_database()
         {
             using (var context = new SchedulerDbContext())
             {
+
                 context.Database.Exists().Should().BeTrue();
 
                 var conn = context.Database.Connection;
@@ -27,16 +27,6 @@ namespace scheduler.Infrastructure.EntityFramework.Tests
                 conn.Close();
 
                 conn.State.ToString().ShouldBeEquivalentTo(ConnectionState.Closed.ToString());
-
-            }
-        }
-
-        [Fact]
-        public void Seed_enum_values_should_work()
-        {
-            using (var context = new SchedulerDbContext())
-            {
-                context.Role.SeedEnumValues<Role, RoleEnum>();
             }
         }
     }
