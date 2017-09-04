@@ -5,22 +5,49 @@ using scheduler.Domain.ValueObjects.Base;
 
 namespace scheduler.Domain.ValueObjects
 {
-    public class Availability : ValueObject
+    public class Availability : ValueObject<Availability>
     {
-        public DateTime StartTime { get; set; }
 
-        public DateTime EndTime { get; set; }
+        public Availability(User user, Weekday weekday, DateTime startTime, DateTime endTime)
+        {
+            User = user;
+            UserId = user.Id;
+            Weekday = weekday;
+            WeekdayId = weekday.Id;
+            StartTime = startTime;
+            EndTime = endTime;
+        }
 
-        #region navigationProperties
+        public Availability(int userId, int weekdayId, DateTime startTime, DateTime endTime)
+        {
+            UserId = userId;
+            WeekdayId = weekdayId;
+            StartTime = startTime;
+            EndTime = endTime;
+        }
 
-        public int UserId { get; set; }
+        public DateTime StartTime { get; }
 
-        public virtual User User { get; set; }
+        public DateTime EndTime { get; }
 
-        public int WeekdayId { get; set; }
+        public long UserId { get; }
 
-        public virtual Weekday Weekday { get; set; }
+        public virtual User User { get; }
 
-        #endregion
+        public long WeekdayId { get; }
+
+        public virtual Weekday Weekday { get; }
+
+        protected override bool EqualsCore(Availability other)
+        {
+            return UserId == other.UserId
+                   && WeekdayId == other.WeekdayId
+                   && StartTime == other.StartTime;
+        }
+
+        protected override int GetHashCodeCore()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

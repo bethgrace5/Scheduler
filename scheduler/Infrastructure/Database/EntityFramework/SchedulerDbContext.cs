@@ -71,7 +71,6 @@ namespace scheduler.Infrastructure.Database.EntityFramework
             modelBuilder.Entity<UserStatus>()
                 .HasKey(t => new {t.UserId, t.StatusId});
 
-
             modelBuilder.Entity<LeaveOfAbsence>()
                 .HasKey(t => new { t.RequestedById, t.StartDateTime });
 

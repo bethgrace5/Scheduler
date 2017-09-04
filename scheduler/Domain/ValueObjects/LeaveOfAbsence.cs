@@ -4,15 +4,22 @@ using scheduler.Domain.ValueObjects.Base;
 
 namespace scheduler.Domain.ValueObjects
 {
-    public class LeaveOfAbsence : ValueObject
+    public class LeaveOfAbsence : ValueObject<LeaveOfAbsence>
     {
-        public bool IsApproved { get; set; }
+        public LeaveOfAbsence(int requestedById, int respondedById, DateTime startDateTime, DateTime endDateTime, bool isApproved = false)
+        {
+            RequestedById = requestedById;
+            RespondedById = respondedById;
+            StartDateTime = startDateTime;
+            EndDateTime = endDateTime;
+            IsApproved = isApproved;
+        }
 
-        public DateTime StartDateTime { get; set; }
+        public bool IsApproved { get; }
 
-        public DateTime EndDateTime { get; set; }
+        public DateTime StartDateTime { get; }
 
-        #region navigationProperties
+        public DateTime EndDateTime { get; }
 
         public int RequestedById { get; set; }
 
@@ -22,6 +29,16 @@ namespace scheduler.Domain.ValueObjects
 
         public virtual User RespondedBy { get; set; }
 
-        #endregion
+
+        protected override bool EqualsCore(LeaveOfAbsence other)
+        {
+            return RequestedById == other.RequestedById
+                   && StartDateTime == other.StartDateTime;
+        }
+
+        protected override int GetHashCodeCore()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

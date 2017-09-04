@@ -3,23 +3,51 @@ using scheduler.Domain.ValueObjects.Base;
 
 namespace scheduler.Domain.ValueObjects
 {
-    public class ReceivablesSchedule : ValueObject
+    public class ReceivablesSchedule : ValueObject<ReceivablesSchedule>
     {
-        public string Title { get; set; }
-        public bool Monday { get; set; }
-        public bool Tuesday { get; set; }
-        public bool Wednesday { get; set; }
-        public bool Thursday { get; set; }
-        public bool Friday { get; set; }
-        public bool Saturday { get; set; }
-        public bool Sunday { get; set; }
+        public ReceivablesSchedule(string title, long locationId, bool monday, bool tuesday, bool wednesday, bool thursday, bool friday,
+            bool saturday, bool sunday)
+        {
+            Title = title;
+            LocationId = locationId;
+            Monday = monday;
+            Tuesday = tuesday;
+            Wednesday = wednesday;
+            Thursday = thursday;
+            Friday = friday;
+            Saturday = saturday;
+            Sunday = sunday;
+        }
 
-        #region navigationProperties
+        public string Title { get; }
 
-        public int LocationId { get; set; }
+        public bool Monday { get; }
+
+        public bool Tuesday { get; }
+
+        public bool Wednesday { get; }
+
+        public bool Thursday { get; }
+
+        public bool Friday { get; }
+
+        public bool Saturday { get; }
+
+        public bool Sunday { get; }
+
+        public long LocationId { get; set; }
 
         public virtual Location Location { get; set; }
 
-        #endregion
+        protected override bool EqualsCore(ReceivablesSchedule other)
+        {
+            return LocationId == other.LocationId
+                   && Title == other.Title;
+        }
+
+        protected override int GetHashCodeCore()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

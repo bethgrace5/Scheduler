@@ -2,16 +2,39 @@
 
 namespace scheduler.Domain.ValueObjects
 {
-    public class Address : ValueObject
+    public class Address : ValueObject<Address>
     {
-        public int Zipcode { get; set; }
+        public Address(int number, string street, string city, string state, int zipcode)
+        {
+            Number = number;
+            Street = street;
+            City = city;
+            State = state;
+            Zipcode = zipcode;
+        }
 
-        public int Number { get; set; }
+        public int Number { get; }
 
-        public string City { get; set; }
+        public string Street { get; }
 
-        public string State { get; set; }
+        public string City { get; }
 
-        public string Street { get; set; }
+        public string State { get; }
+
+        public int Zipcode { get; }
+
+        protected override bool EqualsCore(Address other)
+        {
+            return Number == other.Number
+                   && Street == other.Street
+                   && City == other.City
+                   && State == other.State
+                   && Zipcode == other.Zipcode;
+        }
+
+        protected override int GetHashCodeCore()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

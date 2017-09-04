@@ -5,23 +5,41 @@ using scheduler.Domain.ValueObjects.Base;
 
 namespace scheduler.Domain.ValueObjects
 {
-    public class TemporaryLocationHourChange : ValueObject
+    public class TemporaryLocationHourChange : ValueObject<TemporaryLocationHourChange>
     {
-        public DateTime StartDateTime { get; set; }
-        public DateTime EndDateTime { get; set; }
-        public string ReasonId { get; set; }
-        public bool IsOpen { get; set; }
+        public TemporaryLocationHourChange(int locationId, int hourChangeReasonId, DateTime startDateTime,
+            DateTime endDateTime, bool isOpen = false)
+        {
+            LocationId = locationId;
+            HourChangeReasonId = hourChangeReasonId;
+            StartDateTime = startDateTime;
+            EndDateTime = endDateTime;
+            IsOpen = isOpen;
+        }
 
-        #region navigationProperties
+        public DateTime StartDateTime { get; }
 
-        public int HourChangeReasonId { get; set; }
+        public DateTime EndDateTime { get; }
 
-        public virtual HourChangeReason HourChangeReason { get; set; }
+        public bool IsOpen { get; }
 
-        public int LocationId { get; set; }
+        public int HourChangeReasonId { get; }
 
-        public virtual Location Location { get; set; }
+        public virtual HourChangeReason HourChangeReason { get; }
 
-        #endregion
+        public long LocationId { get; }
+
+        public virtual Location Location { get; }
+
+        protected override bool EqualsCore(TemporaryLocationHourChange other)
+        {
+            return LocationId == other.LocationId
+                   && StartDateTime == other.StartDateTime;
+        }
+
+        protected override int GetHashCodeCore()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

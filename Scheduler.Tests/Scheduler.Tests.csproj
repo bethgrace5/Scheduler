@@ -68,6 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\ValueObjects\PositionSpecs.cs" />
     <Compile Include="Infrastructure\EntityFrameworkIntegrationTests.cs" />
     <Compile Include="Infrastructure\EntityFrameworkUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
