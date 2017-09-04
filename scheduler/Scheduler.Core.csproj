@@ -48,10 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\EntityFramework\Migrations\201709040132103_Initial3.cs" />
-    <Compile Include="Database\EntityFramework\Migrations\201709040132103_Initial3.Designer.cs">
-      <DependentUpon>201709040132103_Initial3.cs</DependentUpon>
-    </Compile>
     <Compile Include="Domain\Entities\Address.cs" />
     <Compile Include="Domain\Entities\Availability.cs" />
     <Compile Include="Domain\Entities\Base\Entity.cs" />
@@ -60,17 +56,13 @@
     <Compile Include="Domain\Entities\EnumEntities\Language.cs" />
     <Compile Include="Domain\Entities\EnumEntities\Country.cs" />
     <Compile Include="Infrastructure\EntityFramework\ISchedulerDbContext.cs" />
-    <Compile Include="Infrastructure\EntityFramework\Migrations\201709032234112_Initial.cs" />
-    <Compile Include="Infrastructure\EntityFramework\Migrations\201709032234112_Initial.Designer.cs">
-      <DependentUpon>201709032234112_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Infrastructure\EntityFramework\Migrations\201709032242120_Initial2.cs" />
-    <Compile Include="Infrastructure\EntityFramework\Migrations\201709032242120_Initial2.Designer.cs">
-      <DependentUpon>201709032242120_Initial2.cs</DependentUpon>
+    <Compile Include="Infrastructure\EntityFramework\Migrations\201709040216593_Initial.cs" />
+    <Compile Include="Infrastructure\EntityFramework\Migrations\201709040216593_Initial.Designer.cs">
+      <DependentUpon>201709040216593_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\EntityFramework\Migrations\Configuration.cs" />
     <Compile Include="Infrastructure\Database\Seeds\EnumSeeds.cs" />
-    <Compile Include="Domain\ValueObjects\Extensions\Extensions.cs" />
+    <Compile Include="Domain\Entities\EnumEntities\Extensions\Extensions.cs" />
     <Compile Include="Domain\Entities\EnumEntities\HourChangeReason.cs" />
     <Compile Include="Domain\Entities\LeaveOfAbsence.cs" />
     <Compile Include="Domain\Entities\Location.cs" />
@@ -105,14 +97,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Database\EntityFramework\Migrations\201709040132103_Initial3.resx">
-      <DependentUpon>201709040132103_Initial3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Infrastructure\EntityFramework\Migrations\201709032234112_Initial.resx">
-      <DependentUpon>201709032234112_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Infrastructure\EntityFramework\Migrations\201709032242120_Initial2.resx">
-      <DependentUpon>201709032242120_Initial2.cs</DependentUpon>
+    <EmbeddedResource Include="Infrastructure\EntityFramework\Migrations\201709040216593_Initial.resx">
+      <DependentUpon>201709040216593_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

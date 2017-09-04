@@ -10,7 +10,7 @@ namespace scheduler.Infrastructure.EntityFramework.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            MigrationsDirectory = @"Database\EntityFramework\Migrations";
+            MigrationsDirectory = @"Infrastructure\EntityFramework\Migrations";
         }
 
         protected override void Seed(SchedulerDbContext context)
