@@ -1,5 +1,6 @@
-﻿using scheduler.Domain.Entities.Base;
-using scheduler.Domain.EnumEntities;
+﻿using System.Collections.Generic;
+using scheduler.Domain.Dictionaries;
+using scheduler.Domain.Entities.Base;
 using scheduler.Domain.ValueObjects;
 
 namespace scheduler.Domain.Entities
@@ -14,20 +15,14 @@ namespace scheduler.Domain.Entities
 
         public string Fax { get; set; }
 
-        #region navigationProperties
-
-        public int TimeZoneId { get; set; }
-
         public virtual TimeZone TimeZone { get; set; }
-
-        public int BusinessId { get; set; }
 
         public virtual Business Business { get; set; }
 
-        public int AddressId { get; set; }
-
         public virtual Address Address { get; set; }
 
-        #endregion
+        public virtual ICollection<Position> Positions { get; set; }
+
+        public virtual ICollection<TemporaryLocationHourChange> TemporaryLocationHourChanges { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using scheduler.Domain.Dictionaries;
 using scheduler.Domain.Entities.Base;
-using scheduler.Domain.EnumEntities;
 using scheduler.Domain.ValueObjects;
 
 namespace scheduler.Domain.Entities
@@ -31,20 +32,16 @@ namespace scheduler.Domain.Entities
 
         public bool Active { get; set; }
 
-        #region navigationProperties
-
-        public int RoleId { get; set; }
-
         public virtual Role Role { get; set; }
-
-        public int AddressId { get; set; }
 
         public virtual Address Address { get; set; }
 
-        public int StatusId { get; set; }
-
         public virtual Status Status { get; set; }
 
-        #endregion
+        public virtual ICollection<Availability> Availabilities { get; set; }
+        public virtual ICollection<LocationHistory> LocationHistory { get; set; }
+        public virtual ICollection<NotificationSettings> NotificationSettings { get; set; }
+        public virtual ICollection<Permission> Permissions { get; set; }
+        public virtual ICollection<HasPosition> Positions { get; set; }
     }
 }

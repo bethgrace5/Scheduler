@@ -4,8 +4,8 @@ using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using FluentAssertions;
 using NSubstitute;
-using scheduler.Domain.EnumEntities.Base;
-using scheduler.Domain.EnumEntities.Extensions;
+using scheduler.Domain.Dictionaries.Base;
+using scheduler.Domain.Dictionaries.Extensions;
 using Xunit;
 
 namespace Scheduler.Tests.Infrastructure

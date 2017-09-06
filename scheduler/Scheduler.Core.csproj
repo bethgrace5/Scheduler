@@ -48,46 +48,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\ValueObjects\Address.cs" />
-    <Compile Include="Domain\ValueObjects\Availability.cs" />
+    <Compile Include="Domain\Entities\Address.cs" />
+    <Compile Include="Domain\Entities\Availability.cs" />
     <Compile Include="Domain\Entities\Base\Entity.cs" />
     <Compile Include="Domain\Entities\Business.cs" />
-    <Compile Include="Domain\EnumEntities\UsStatesAndTerritories.cs" />
-    <Compile Include="Domain\EnumEntities\Language.cs" />
-    <Compile Include="Domain\EnumEntities\Country.cs" />
+    <Compile Include="Domain\Dictionaries\UsStatesAndTerritories.cs" />
+    <Compile Include="Domain\Dictionaries\Language.cs" />
+    <Compile Include="Domain\Dictionaries\Country.cs" />
     <Compile Include="Domain\ValueObjects\Base\ValueObject.cs" />
     <Compile Include="Infrastructure\Database\EntityFramework\ISchedulerDbContext.cs" />
-    <Compile Include="Infrastructure\Database\EntityFramework\Migrations\201709040216593_Initial.cs" />
-    <Compile Include="Infrastructure\Database\EntityFramework\Migrations\201709040216593_Initial.Designer.cs">
-      <DependentUpon>201709040216593_Initial.cs</DependentUpon>
+    <Compile Include="Infrastructure\Database\EntityFramework\Migrations\201709060612035_Initial.cs" />
+    <Compile Include="Infrastructure\Database\EntityFramework\Migrations\201709060612035_Initial.Designer.cs">
+      <DependentUpon>201709060612035_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Database\EntityFramework\Migrations\Configuration.cs" />
     <Compile Include="Infrastructure\Database\Seeds\EnumSeeds.cs" />
-    <Compile Include="Domain\EnumEntities\Extensions\Extensions.cs" />
-    <Compile Include="Domain\EnumEntities\HourChangeReason.cs" />
-    <Compile Include="Domain\ValueObjects\LeaveOfAbsence.cs" />
+    <Compile Include="Domain\Dictionaries\Extensions\Extensions.cs" />
+    <Compile Include="Domain\Dictionaries\HourChangeReason.cs" />
+    <Compile Include="Domain\Entities\Absence.cs" />
     <Compile Include="Domain\Entities\Location.cs" />
-    <Compile Include="Domain\EnumEntities\Notification.cs" />
-    <Compile Include="Domain\EnumEntities\NotificationMedia.cs" />
-    <Compile Include="Domain\EnumEntities\Permission.cs" />
-    <Compile Include="Domain\ValueObjects\Position.cs" />
-    <Compile Include="Domain\ValueObjects\ReceivablesSchedule.cs" />
-    <Compile Include="Domain\EnumEntities\Role.cs" />
+    <Compile Include="Domain\Dictionaries\Notification.cs" />
+    <Compile Include="Domain\Dictionaries\NotificationMedia.cs" />
+    <Compile Include="Domain\Entities\Permission.cs" />
+    <Compile Include="Domain\Entities\Position.cs" />
+    <Compile Include="Domain\Entities\Receivable.cs" />
+    <Compile Include="Domain\Dictionaries\Role.cs" />
     <Compile Include="Domain\Entities\Schedule.cs" />
     <Compile Include="Domain\Entities\ScheduleSettings.cs" />
     <Compile Include="Domain\Entities\Shift.cs" />
-    <Compile Include="Domain\EnumEntities\Status.cs" />
-    <Compile Include="Domain\ValueObjects\TemporaryLocationHourChange.cs" />
-    <Compile Include="Domain\EnumEntities\TimeZone.cs" />
+    <Compile Include="Domain\Dictionaries\Status.cs" />
+    <Compile Include="Domain\Entities\TemporaryLocationHourChange.cs" />
+    <Compile Include="Domain\Dictionaries\TimeZone.cs" />
     <Compile Include="Domain\Entities\User.cs" />
-    <Compile Include="Domain\Relationships\UserLocationHistory.cs" />
-    <Compile Include="Domain\Relationships\UserNotificationSettings.cs" />
-    <Compile Include="Domain\Relationships\UserPermission.cs" />
-    <Compile Include="Domain\Relationships\UserPosition.cs" />
-    <Compile Include="Domain\Relationships\UserScheduledForShift.cs" />
-    <Compile Include="Domain\Relationships\UserStatus.cs" />
-    <Compile Include="Domain\EnumEntities\Base\EnumEntity.cs" />
-    <Compile Include="Domain\EnumEntities\Weekday.cs" />
+    <Compile Include="Domain\Entities\History.cs" />
+    <Compile Include="Domain\Entities\NotificationSettings.cs" />
+    <Compile Include="Domain\Entities\HasPosition.cs" />
+    <Compile Include="Domain\Entities\UserScheduledForShift.cs" />
+    <Compile Include="Domain\Dictionaries\Base\EnumEntity.cs" />
+    <Compile Include="Domain\Dictionaries\Weekday.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Infrastructure\Database\EntityFramework\SchedulerDbContext.cs" />
   </ItemGroup>
@@ -98,10 +96,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Infrastructure\Database\EntityFramework\Migrations\201709040216593_Initial.resx">
-      <DependentUpon>201709040216593_Initial.cs</DependentUpon>
+    <Folder Include="Domain\DomainEvents\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Infrastructure\Database\EntityFramework\Migrations\201709060612035_Initial.resx">
+      <DependentUpon>201709060612035_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

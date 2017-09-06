@@ -1,6 +1,7 @@
 using System.Data.Entity.Migrations;
-using scheduler.Domain.EnumEntities;
-using scheduler.Domain.EnumEntities.Extensions;
+using scheduler.Domain.Dictionaries;
+using scheduler.Domain.Dictionaries.Extensions;
+using scheduler.Domain.Entities;
 using scheduler.Infrastructure.Database.Seeds;
 
 namespace scheduler.Infrastructure.Database.EntityFramework.Migrations
@@ -19,7 +20,6 @@ namespace scheduler.Infrastructure.Database.EntityFramework.Migrations
             context.HourChangeReason.SeedEnumValues<HourChangeReason, HourChangeReasonEnum>();
             context.Notification.SeedEnumValues<Notification, NotificationEnum>();
             context.NotificationMedia.SeedEnumValues<NotificationMedia, NotificationMediaEnum>();
-            context.Permission.SeedEnumValues<Permission, PermissionEnum>();
             context.Role.SeedEnumValues<Role, RoleEnum>();
             context.Status.SeedEnumValues<Status, StatusEnum>();
             context.TimeZone.SeedEnumValues<TimeZone, TimeZoneEnum>();

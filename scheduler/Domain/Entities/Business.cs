@@ -1,7 +1,7 @@
 ﻿using System;
 using scheduler.Domain.Entities.Base;
 using scheduler.Domain.ValueObjects;
-using TimeZone = scheduler.Domain.EnumEntities.TimeZone;
+using TimeZone = scheduler.Domain.Dictionaries.TimeZone;
 
 namespace scheduler.Domain.Entities
 {
@@ -19,20 +19,10 @@ namespace scheduler.Domain.Entities
 
         public DateTime SignUpDate { get; set; }
 
-        #region navigationProperties
-
-        public int TimeZoneId { get; set; }
-
         public virtual TimeZone TimeZone { get; set; }
-
-        public int BillingAddressId { get; set; }
 
         public virtual Address BillingAddress { get; set; }
 
-        public int HeadquarterAddressId { get; set; }
-
         public virtual Address HeadquarterAddress { get; set; }
-
-        #endregion
     }
 }
