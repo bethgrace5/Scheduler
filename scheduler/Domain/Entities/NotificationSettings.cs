@@ -1,5 +1,5 @@
-﻿using scheduler.Domain.Dictionaries;
-using scheduler.Domain.Entities.Base;
+﻿using scheduler.Domain.Entities.Base;
+using scheduler.Domain.Entities.Enums;
 
 namespace scheduler.Domain.Entities
 {

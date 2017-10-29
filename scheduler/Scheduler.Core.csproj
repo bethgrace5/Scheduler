@@ -52,42 +52,47 @@
     <Compile Include="Domain\Entities\Availability.cs" />
     <Compile Include="Domain\Entities\Base\Entity.cs" />
     <Compile Include="Domain\Entities\Business.cs" />
-    <Compile Include="Domain\Dictionaries\UsStatesAndTerritories.cs" />
-    <Compile Include="Domain\Dictionaries\Language.cs" />
-    <Compile Include="Domain\Dictionaries\Country.cs" />
-    <Compile Include="Domain\ValueObjects\Base\ValueObject.cs" />
+    <Compile Include="Domain\Entities\Enums\UsStatesAndTerritories.cs" />
+    <Compile Include="Domain\Entities\Enums\Language.cs" />
+    <Compile Include="Domain\Entities\Enums\Country.cs" />
+    <Compile Include="Domain\Entities\ValueObjects\Base\ValueObject.cs" />
+    <Compile Include="Infrastructure\Aggregates\BusinessAggregate.cs" />
     <Compile Include="Infrastructure\Database\EntityFramework\ISchedulerDbContext.cs" />
-    <Compile Include="Infrastructure\Database\EntityFramework\Migrations\201709060612035_Initial.cs" />
-    <Compile Include="Infrastructure\Database\EntityFramework\Migrations\201709060612035_Initial.Designer.cs">
-      <DependentUpon>201709060612035_Initial.cs</DependentUpon>
+    <Compile Include="Infrastructure\Database\EntityFramework\Migrations\201709062336335_Initial.cs" />
+    <Compile Include="Infrastructure\Database\EntityFramework\Migrations\201709062336335_Initial.Designer.cs">
+      <DependentUpon>201709062336335_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Database\EntityFramework\Migrations\Configuration.cs" />
     <Compile Include="Infrastructure\Database\Seeds\EnumSeeds.cs" />
-    <Compile Include="Domain\Dictionaries\Extensions\Extensions.cs" />
-    <Compile Include="Domain\Dictionaries\HourChangeReason.cs" />
+    <Compile Include="Domain\Entities\Enums\Extensions\Extensions.cs" />
+    <Compile Include="Domain\Entities\Enums\HourChangeReason.cs" />
     <Compile Include="Domain\Entities\Absence.cs" />
     <Compile Include="Domain\Entities\Location.cs" />
-    <Compile Include="Domain\Dictionaries\Notification.cs" />
-    <Compile Include="Domain\Dictionaries\NotificationMedia.cs" />
+    <Compile Include="Domain\Entities\Enums\Notification.cs" />
+    <Compile Include="Domain\Entities\Enums\NotificationMedia.cs" />
     <Compile Include="Domain\Entities\Permission.cs" />
     <Compile Include="Domain\Entities\Position.cs" />
     <Compile Include="Domain\Entities\Receivable.cs" />
-    <Compile Include="Domain\Dictionaries\Role.cs" />
+    <Compile Include="Domain\Entities\Enums\Role.cs" />
     <Compile Include="Domain\Entities\Schedule.cs" />
     <Compile Include="Domain\Entities\ScheduleSettings.cs" />
     <Compile Include="Domain\Entities\Shift.cs" />
-    <Compile Include="Domain\Dictionaries\Status.cs" />
+    <Compile Include="Domain\Entities\Enums\Status.cs" />
     <Compile Include="Domain\Entities\TemporaryLocationHourChange.cs" />
-    <Compile Include="Domain\Dictionaries\TimeZone.cs" />
+    <Compile Include="Domain\Entities\Enums\TimeZone.cs" />
     <Compile Include="Domain\Entities\User.cs" />
     <Compile Include="Domain\Entities\History.cs" />
     <Compile Include="Domain\Entities\NotificationSettings.cs" />
     <Compile Include="Domain\Entities\HasPosition.cs" />
     <Compile Include="Domain\Entities\UserScheduledForShift.cs" />
-    <Compile Include="Domain\Dictionaries\Base\EnumEntity.cs" />
-    <Compile Include="Domain\Dictionaries\Weekday.cs" />
+    <Compile Include="Domain\Entities\Enums\Base\EnumEntity.cs" />
+    <Compile Include="Domain\Entities\Enums\Weekday.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Infrastructure\Database\EntityFramework\SchedulerDbContext.cs" />
+    <Compile Include="Services\BillingService.cs" />
+    <Compile Include="Services\BusinessManagementService.cs" />
+    <Compile Include="Services\SchedulingService.cs" />
+    <Compile Include="Services\UserManagementService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -99,8 +104,8 @@
     <Folder Include="Domain\DomainEvents\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Infrastructure\Database\EntityFramework\Migrations\201709060612035_Initial.resx">
-      <DependentUpon>201709060612035_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Infrastructure\Database\EntityFramework\Migrations\201709062336335_Initial.resx">
+      <DependentUpon>201709062336335_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

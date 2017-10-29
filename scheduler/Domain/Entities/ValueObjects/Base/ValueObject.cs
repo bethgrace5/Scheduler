@@ -1,4 +1,4 @@
-﻿namespace scheduler.Domain.ValueObjects.Base
+﻿namespace scheduler.Domain.Entities.ValueObjects.Base
 {
     public abstract class ValueObject<T> where T : ValueObject<T>
     {

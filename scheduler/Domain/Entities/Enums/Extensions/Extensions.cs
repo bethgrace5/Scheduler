@@ -3,9 +3,9 @@ using System.ComponentModel;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using scheduler.Domain.Dictionaries.Base;
+using scheduler.Domain.Entities.Enums.Base;
 
-namespace scheduler.Domain.Dictionaries.Extensions
+namespace scheduler.Domain.Entities.Enums.Extensions
 {
     public static class Extensions
     {
@@ -18,6 +18,13 @@ namespace scheduler.Domain.Dictionaries.Extensions
                        .FirstOrDefault()?.Description ?? string.Empty;
         }
 
+        /// <summary>
+        /// Takes regular enum (with a resource description), converts it's corresponding <see cref="EnumEntity"/>,
+        /// and stores it in the database
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TEnum"></typeparam>
+        /// <param name="dbSet"></param>
         public static void SeedEnumValues<T, TEnum>(this IDbSet<T> dbSet)
             where T : EnumEntity, new()
         {

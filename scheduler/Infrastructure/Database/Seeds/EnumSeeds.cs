@@ -52,22 +52,21 @@ namespace scheduler.Infrastructure.Database.Seeds
     // Description, Country, Standard Time, Daylight Time, States
     internal enum TimeZoneEnum
     {
-        [Description("Hawaii–Aleutian Time Zone,US,HAST (UTC−10:00),HADT (UTC−09:00),AK;HI")]
-        HawaiiAleutianTimeZone,
+        [Description("Hawaii–Aleutian Time Zone,US,HAST (UTC−10:00),HADT (UTC−09:00),AK;HI")] HawaiiAleutianTimeZone,
 
-        [Description("Alaska Time Zone,US,AKST (UTC−09:00),AKDT (UTC−08:00),AK")]
-        AlaskaTimeZone,
+        [Description("Alaska Time Zone,US,AKST (UTC−09:00),AKDT (UTC−08:00),AK")] AlaskaTimeZone,
 
-        [Description("Pacific Time Zone,US,PST (UTC−08:00),PDT (UTC−07:00),CA;WA;OR;NV;ID")]
-        PacificTimeZone,
+        [Description("Pacific Time Zone,US,PST (UTC−08:00),PDT (UTC−07:00),CA;WA;OR;NV;ID")] PacificTimeZone,
 
         [Description("Mountain Time Zone,US,MST (UTC−07:00),MDT (UTC−06:00),AZ;CO;ID;KS;MT;NE;NV;NM;ND;OR;SD;TX;UT;WY")]
         MountainTimeZone,
 
-        [Description("Central Time Zone,US,CST (UTC−06:00),CDT (UTC−05:00),AL;AR;FL;IL;IN;IA;KS;KY;LA;MI;MN;MS;MO;NE;ND;OK;SD;TN;TX;WI")]
+        [Description(
+            "Central Time Zone,US,CST (UTC−06:00),CDT (UTC−05:00),AL;AR;FL;IL;IN;IA;KS;KY;LA;MI;MN;MS;MO;NE;ND;OK;SD;TN;TX;WI")]
         CentralTimeZone,
 
-        [Description("Eastern Time Zone,US,EST (UTC−05:00),EDT (UTC−04:00),CT;FL;Washington DC;DE;GA;IN;KY;ME;MA;MI;NH;NJ;NY;NC;OH;PA;RI;SC;TN;VT;MD;VA;WV")]
+        [Description(
+            "Eastern Time Zone,US,EST (UTC−05:00),EDT (UTC−04:00),CT;FL;Washington DC;DE;GA;IN;KY;ME;MA;MI;NH;NJ;NY;NC;OH;PA;RI;SC;TN;VT;MD;VA;WV")]
         EasternTimeZone
     }
 

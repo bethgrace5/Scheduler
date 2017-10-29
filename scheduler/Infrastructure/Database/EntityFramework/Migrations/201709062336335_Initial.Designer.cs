@@ -13,7 +13,7 @@ namespace scheduler.Infrastructure.Database.EntityFramework.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201709060612035_Initial"; }
+            get { return "201709062336335_Initial"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,6 +1,6 @@
 ﻿using scheduler.Domain.Entities.Base;
 
-namespace scheduler.Domain.Dictionaries.Base
+namespace scheduler.Domain.Entities.Enums.Base
 {
     public class EnumEntity : Entity
     {

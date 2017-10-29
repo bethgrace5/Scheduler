@@ -1,6 +1,6 @@
 ﻿using System;
-using scheduler.Domain.Dictionaries;
 using scheduler.Domain.Entities.Base;
+using scheduler.Domain.Entities.Enums;
 
 namespace scheduler.Domain.Entities
 {
@@ -14,6 +14,6 @@ namespace scheduler.Domain.Entities
 
         public virtual HourChangeReason HourChangeReason { get; set; }
 
-        public virtual Location Location { get; set; }   
+        public virtual Location Location { get; set; }
     }
 }

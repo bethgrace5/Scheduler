@@ -1,6 +1,5 @@
 ﻿using System;
 using scheduler.Domain.Entities.Base;
-using scheduler.Domain.ValueObjects;
 
 namespace scheduler.Domain.Entities
 {

@@ -12,6 +12,5 @@ namespace scheduler.Domain.Entities
         public virtual Location Location { get; set; }
 
         public virtual ICollection<User> Users { get; set; }
-
     }
 }

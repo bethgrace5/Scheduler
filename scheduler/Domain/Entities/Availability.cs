@@ -1,10 +1,8 @@
 ﻿using System;
-using scheduler.Domain.Dictionaries;
-using scheduler.Domain.Entities;
 using scheduler.Domain.Entities.Base;
-using scheduler.Domain.ValueObjects.Base;
+using scheduler.Domain.Entities.Enums;
 
-namespace scheduler.Domain.ValueObjects
+namespace scheduler.Domain.Entities
 {
     public class Availability : Entity
     {

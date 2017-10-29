@@ -1,7 +1,6 @@
 using System.Data.Entity.Migrations;
-using scheduler.Domain.Dictionaries;
-using scheduler.Domain.Dictionaries.Extensions;
-using scheduler.Domain.Entities;
+using scheduler.Domain.Entities.Enums;
+using scheduler.Domain.Entities.Enums.Extensions;
 using scheduler.Infrastructure.Database.Seeds;
 
 namespace scheduler.Infrastructure.Database.EntityFramework.Migrations
@@ -27,7 +26,6 @@ namespace scheduler.Infrastructure.Database.EntityFramework.Migrations
             context.Country.SeedEnumValues<Country, CountryEnum>();
             context.Language.SeedEnumValues<Language, LanguageEnum>();
             context.UsStatesAndTerritorieses.SeedEnumValues<UsStatesAndTerritories, UsStatesAndTerritoriesEnum>();
-
         }
     }
 }
